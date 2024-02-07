@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма для Кампании</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        .channel-settings {
+            display: none;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <form id="campaignForm">
+            <!-- Выбор каналов -->
+            <div class="form-group">
+                <label>Выберите каналы:</label><br>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="vk" name="channels" value="vk">
+                    <label class="form-check-label" for="vk">ВКонтакте</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="telegram" name="channels" value="telegram">
+                    <label class="form-check-label" for="telegram">Telegram</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="whatsapp" name="channels" value="whatsapp">
+                    <label class="form-check-label" for="whatsapp">WhatsApp</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="sms" name="channels" value="sms">
+                    <label class="form-check-label" for="sms">SMS</label>
+                </div>
+            </div>
+
+            <!-- Настройки сообщения для ВКонтакте -->
+            <div id="settings_vk" class="channel-settings">
+                <div class="form-group">
+                    <label for="message_vk">Сообщение для ВКонтакте:</label><br>
+                    <textarea class="form-control" id="message_vk" name="message_vk" maxlength="4096"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="keyboard_type_vk">Тип клавиатуры:</label><br>
+                    <select class="form-control" id="keyboard_type_vk" name="keyboard_type_vk">
+                        <option value="standard">Стандартная</option>
+                        <option value="inline">Inline</option>
+                    </select>
+                </div>
+                <div id="buttons_vk"></div>
+                <button type="button" class="btn btn-primary" onclick="addButton('vk')">Добавить кнопку</button><br>
+            </div>
+
+            <!-- Настройки сообщения для Telegram -->
+            <div id="settings_telegram" class="channel-settings">
+                <div class="form-group">
+                    <label for="message_telegram">Сообщение для Telegram:</label><br>
+                    <textarea class="form-control" id="message_telegram" name="message_telegram" maxlength="4096"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="keyboard_type_telegram">Тип клавиатуры:</label><br>
+                    <select class="form-control" id="keyboard_type_telegram" name="keyboard_type_telegram">
+                        <option value="standard">Стандартная</option>
+                        <option value="inline">Inline</option>
+                    </select>
+                </div>
+                <div id="buttons_telegram"></div>
+                <button type="button" class="btn btn-primary" onclick="addButton('telegram')">Добавить кнопку</button><br>
+            </div>
+
+            <!-- Настройки сообщения для WhatsApp -->
+            <div id="settings_whatsapp" class="channel-settings">
+                <div class="form-group">
+                    <label for="message_whatsapp">Сообщение для WhatsApp:</label><br>
+                    <textarea class="form-control" id="message_whatsapp" name="message_whatsapp" maxlength="1000"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="keyboard_type_whatsapp">Тип клавиатуры:</label><br>
+                    <select class="form-control" id="keyboard_type_whatsapp" name="keyboard_type_whatsapp">
+                        <option value="standard">Стандартная</option>
+                        <option value="inline">Inline</option>
+                    </select>
+                </div>
+                <div id="buttons_whatsapp"></div>
+                <button type="button" class="btn btn-primary" onclick="addButton('whatsapp')">Добавить кнопку</button><br>
+            </div>
+
+            <!-- Настройки для SMS -->
+            <div id="settings_sms" class="channel-settings">
+                <div class="form-group">
+                    <label for="message_sms">Сообщение для SMS:</label><br>
+                    <textarea class="form-control" id="message_sms" name="message_sms"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group mt-3">
+                <button type="submit" class="btn btn-success">Сохранить</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Подключение внешнего JavaScript файла -->
+    <script src="script.js"></script>
+</body>
+</html>
